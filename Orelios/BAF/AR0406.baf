@@ -1,0 +1,8 @@
+IF
+GLOBAL("PMOrelExists","AR0406",0)
+THEN
+Response #100
+SetGlobal("PMOrelExists","AR0406",1)
+CreateCreature("PM_Orel",[1857.957],3)
+Continue()
+END

@@ -1,0 +1,100 @@
+BACKUP ~Orelios/Backup~
+//AUTHOR ~Danzig!~
+SUPPORT ~PaulaMigrate@mail.com~
+VERSION ~2.0~
+
+ALWAYS
+ACTION_IF GAME_IS ~eet~ BEGIN
+    OUTER_SET bg2_chapter = 12
+  END ELSE BEGIN
+    OUTER_SET bg2_chapter = 0
+  END
+ OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+    OUTER_SET bg2_chapter = bg2_chapter + 1
+    OUTER_SPRINT name_source ~bg2_chapter_%i%~
+    OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+  END
+END  
+
+BEGIN ~Orelios NPC~
+
+COPY ~Orelios/Misc/PM_Orel.cre~ ~override~
+SAY NAME1 ~Orelios~
+SAY NAME2 ~Orelios~
+SAY BIO ~When asked about his past, Orelios states that he is a native of the city of Veltalar in Aglarond, far to the East across the Sea of Fallen Stars. He says that he made the journey to Amn about a year and a half before your meeting. He left home after years spent in the Aglarond army and the coming of age of his two daughters, though he does not go into detail about them or how he made the transition from soldier to adventurer. It was apparently a long journey, as he has only been in Athkatla for some months. His demeanor is one of deep calm but also fine control – on the rare occasion that his face shows emotion, it is slight, and he has not raised his voice at any point during your travels together. As you travel, he scans his surroundings, as if compiling some inscrutable mental catalogue.~
+SAY MORALE ~I can do no more. I flee.~
+SAY HAPPY ~I am most contented with the actions of this group.~
+SAY UNHAPPY_ANNOYED ~You must think before you act.~
+SAY UNHAPPY_SERIOUS ~Be forewarned, I can scarcely abide more of this recklesness.~
+SAY UNHAPPY_BREAKING ~I have reached my end. I hope you find some sense in my absence.~
+SAY LEADER ~I would be honored.~ [PM_Orelb]
+SAY TIRED ~There is no more to be gained this day. Let us retire.~ [PM_Orelc]
+SAY BORED ~Why must we kill time when we can use it to our advantage?~ [PM_Oreld]
+SAY BATTLE_CRY1 ~Gods grant me strength.~ [PM_Orela]
+SAY BATTLE_CRY2 ~To victory.~ [PM_Orel8]
+SAY BATTLE_CRY3 ~To victory.~ [PM_Orel8]
+SAY BATTLE_CRY4 ~Gods grant me strength.~ [PM_Orela]
+SAY DAMAGE ~Hrk!~ [PM_Orell]
+SAY DYING ~Ah!~ [PM_Orelm]
+SAY HURT ~I fear I am wounded.~ [PM_Orele]
+SAY AREA_FOREST ~I am almost reminded of the Yuirwood. Forests do not suit me.~
+SAY AREA_CITY ~Ah, the city... Remember to center yourself here, or you may be driven to distraction.~
+SAY AREA_DUNGEON ~Stay calm and watch your surroundings. There is little that can harm us if we are prepared.~
+SAY AREA_DAY ~Beautiful day, hmm? The sun's warmth is welcome.~
+SAY AREA_NIGHT ~I always preferred the quiet of night, even with its dangers.~
+SAY SELECT_COMMON1 ~How can I help?~ [PM_Orelf]
+SAY SELECT_COMMON2 ~How can I serve?~ [PM_Orelg]
+SAY SELECT_COMMON3 ~Yes?~ [PM_Orelh]
+SAY SELECT_COMMON4 ~Speak your mind.~ [PM_Orelx]
+SAY SELECT_COMMON5 ~Yes?~ [PM_Orelh]
+SAY SELECT_COMMON6 ~How can I help?~ [PM_Orelf]
+SAY SELECT_ACTION1 ~Of course.~ [PM_Oreli]
+SAY SELECT_ACTION2 ~It shall be done.~ [PM_Orelk]
+SAY SELECT_ACTION3 ~Very well.~ [PM_Orelj]
+SAY SELECT_ACTION5 ~Agreed.~ [PM_Orels]
+SAY SELECT_ACTION6 ~At once.~ [PM_Orelt]
+SAY SELECT_ACTION7 ~Onward.~ [PM_Orelu]
+SAY REACT_TO_DIE_GENERAL ~I shall see to it that you are buried, with honor.~ [PM_Orelw]
+SAY SELECT_RARE1 ~Speak your mind, then leave quickly.~ [PM_RARE1]
+SAY SELECT_RARE2 ~I pray your childish mind will soon turn toward other amusements.~ [PM_RARE2]
+SAY CRITICAL_HIT ~Yield!~ [PM_Orelz]
+SAY CRITICAL_MISS ~Blast it.~
+SAY TARGET_IMMUNE ~I cannot overcome this defense.~
+SAY HIDDEN_IN_SHADOWS ~Forward.~ [PM_Orel5]
+SAY SPELL_DISRUPTED ~My concentration has broken.~
+SAY INVENTORY_FULL ~My strength has reached its limit, I can carry no more.~
+
+COMPILE ~Orelios/D/PM_Orel.d~
+COMPILE ~Orelios/D/BOrelios.d~
+COMPILE ~Orelios/D/PMOrelJ.d~
+COMPILE EVALUATE_BUFFER~Orelios/Baf/PM_Orel.baf~
+
+EXTEND_TOP ~AR0406.bcs~ ~Orelios/Baf/AR0406.baf~
+
+LAF HANDLE_AUDIO END
+
+APPEND ~pdialog.2da~
+~PMOrel PMOrelP PMOrelJ PMOrelD PMOrelP PMOrelJ PMOrelD PM_Orel~
+UNLESS ~PMOrel~
+
+APPEND ~interdia.2da~
+~PMOrel BOrelios BOrelios~
+UNLESS ~PMOrel~
+
+COPY ~Orelios/portrait~ ~override~
+
+COPY ~Orelios/Misc/PM_Blank.mus~ ~music~
+COPY_EXISTING ~songlist.2da~ ~override~
+SET_2DA_ENTRY 0 2 3 ~PM_BLANK.MUS~
+
+COPY ~Orelios/spells/PMarmor.spl~ ~override~
+SAY NAME1 ~Denial of Harm~
+
+COPY ~Orelios/spells/PMmirro.spl~ ~override~
+SAY NAME1 ~Denial of Sight~
+
+COPY ~Orelios/spells/PMdecei.spl~ ~override~
+SAY NAME1 ~Denial of Deceit~
+
+COPY ~Orelios/spells/PMmagic.spl~ ~override~
+SAY NAME1 ~Denial of Magic~

@@ -1,0 +1,105 @@
+IF
+GLOBAL("OreliusJoinrf","LOCALS",1)
+GLOBAL("PMOrelSpy","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGLOBAL("PMOrelSpy","GLOBAL",1)
+END
+
+IF
+GLOBAL("OreliusJoinrf","LOCALS",1)
+GLOBAL("PM_OrelAbility","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("PM_OrelAbility","GLOBAL",1)
+END
+
+IF
+GLOBAL("OreliusJoinrf","LOCALS",1)
+Global("PMOrelTalk","GLOBAL",0)
+GLOBAL("PM_TalkTimerSet","LOCALS",0)
+THEN
+RESPONSE #100
+SetGlobal("PM_TalkTimerSet","LOCALS",1)
+SetGlobal("PMOrelTalk","GLOBAL",1)
+RealSetGlobalTimer("PMOrelTalkTimer","GLOBAL",4500)
+END
+
+IF
+RealGlobalTimerExpired("PMOrelTalkTimer","GLOBAL")
+InParty("PMOrel")
+See(Player1)
+!ActuallyInCombat()
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+GlobalLT("PMOrelTalk","GLOBAL",6)
+THEN
+RESPONSE #100
+PlaySong(0)
+RealSetGlobalTimer("PMOrelTalkTimer","GLOBAL",4500)
+PlaySound("PM_SONG")
+Interact(Player1)
+END
+
+IF
+GLOBAL("OreliusJoinrf","LOCALS",1)
+GlobalGT("Chapter","GLOBAL",%bg2_chapter_5%)
+GLOBAL("PM_OrelTalk2","GLOBAL",0)
+GLOBAL("PM_OrelTalk2TimerSet","LOCALS",0)
+THEN
+RESPONSE #100
+SetGlobal("PM_OrelTalkTimer2Set","LOCALS",1)
+SetGlobal("PM_OrelTalk2","GLOBAL",1)
+RealSetGlobalTimer("PM_OrelTalk2Timer","GLOBAL",4500)
+END
+
+IF
+RealGlobalTimerExpired("PM_OrelTalk2Timer","GLOBAL")
+InParty("PMOrel")
+See(Player1)
+!ActuallyInCombat()
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+GlobalLT("PM_OrelTalk2","GLOBAL",20)
+THEN
+RESPONSE #100
+PlaySong(0)
+RealSetGlobalTimer("PM_OrelTalk2Timer","GLOBAL",4500)
+PlaySound("PM_Song")
+Interact(Player1)
+END
+
+IF
+GLOBAL("OreliusJoinrf","LOCALS",1)
+GLOBAL("PM_JaheiraGab","GLOBAL",0)
+InParty("PMOrel")
+InParty("jaheira")
+THEN
+RESPONSE #100
+SetGlobal("PM_JaheiraGab","GLOBAL",1)
+END
+
+IF
+GLOBAL("OreliusJoinrf","LOCALS",1)
+GLOBAL("PM_JaheiraYell","GLOBAL",1)
+InParty("PMOrel")
+InParty("jaheira")
+THEN
+RESPONSE #100
+RealSetGlobalTimer("PMBJaheiraYellTime","GLOBAL",2000)
+END
+
+IF
+RealGlobalTimerExpired("PMBJaheiraYellTime","GLOBAL")
+InParty("PMOrel")
+InParty("jaheira")
+See(Player1)
+!ActuallyInCombat()
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+Global("PM_JaheiraYell","GLOBAL",1)
+THEN
+RESPONSE #100
+Interact(Player1)
+END
+
