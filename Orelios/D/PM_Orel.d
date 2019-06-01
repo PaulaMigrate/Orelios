@@ -43,7 +43,7 @@ IF ~~ THEN REPLY ~Nothing right now. I'll take my leave of you.~ EXIT
 END
 
 IF ~~ THEN BEGIN Intro6
-SAY ~I could ask you the same question, couldn't I? Hmm, very well. I go by Orelius.~
+SAY ~I could ask you the same question, couldn't I? Hmm, very well. I go by Orelios.~
 = ~I must say I wasn't really expecting an interrogation today. I assume you have a name?~
 IF ~~ THEN REPLY ~<CHARNAME>. Well met. I don't mean to pry, but you seem a bit too put-together to be lounging about in a den of vice.~ GOTO Intro2
 END
