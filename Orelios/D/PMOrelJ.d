@@ -161,23 +161,11 @@ INTERJECT_COPY_TRANS2 SCSARLES 11 PM_SCSARLES11
 == PMOrelJ IF ~InParty("PMOrel") InMyArea("PMOrel")~ THEN ~Hmph. One would think that there be better uses for our time than to facilitate such decadence.~
 END
 
-INTERJECT_COPY_TRANS2 DELCIA 1 PM_DELCIA1
+INTERJECT_COPY_TRANS DELCIA 0 PM_DELCIA1
 == PMOrelJ IF ~InParty("PMOrel") InMyArea("PMOrel")~ THEN ~There is a refreshing lack of such entitled fools where I come from. It's enough to make me wonder why I left. Momentarily, at least.~
 END
 
-INTERJECT_COPY_TRANS2 DELCIA 3 PM_DELCIA3
-== PMOrelJ IF ~InParty("PMOrel") InMyArea("PMOrel")~ THEN ~There is a refreshing lack of such entitled fools where I come from. It's enough to make me wonder why I left. Momentarily, at least.~
-END
-
-INTERJECT_COPY_TRANS2 DELCIA 4 PM_DELCIA4
-== PMOrelJ IF ~InParty("PMOrel") InMyArea("PMOrel")~ THEN ~There is a refreshing lack of such entitled fools where I come from. It's enough to make me wonder why I left. Momentarily, at least.~
-END
-
-INTERJECT_COPY_TRANS2 DELCIA 7 PM_DELCIA7
-== PMOrelJ IF ~InParty("PMOrel") InMyArea("PMOrel")~ THEN ~There is a refreshing lack of such entitled fools where I come from. It's enough to make me wonder why I left. Momentarily, at least.~
-END
-
-INTERJECT_COPY_TRANS2 DELCIA 2 PM_DELCIA2
+INTERJECT_COPY_TRANS DELCIA 17 PM_DELCIA2
 == PMOrelJ IF ~InParty("PMOrel") InMyArea("PMOrel")~ THEN ~There is a refreshing lack of such entitled fools where I come from. It's enough to make me wonder why I left. Momentarily, at least.~
 END
 
