@@ -662,6 +662,7 @@ IF ~~ THEN DO ~LeaveParty() SetGlobal("OreliusJoinrf","LOCALS",0) EscapeAreaMove
 CHAIN
 IF ~InParty("PMOrel")
 InParty(Player1)
+Global("PM_OrelAbility","GLOBAL",0)
 !StateCheck("PMOrel",CD_STATE_NOTVALID)
 !StateCheck(Player1,CD_STATE_NOTVALID)
 GlobalGT("PMOrelTalk","GLOBAL",4)
